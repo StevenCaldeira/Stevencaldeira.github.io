@@ -1,934 +1,826 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with Steller landing page.">
-    <meta name="author" content="Devcrud">
-    <title>Steven's |  Portfolio</title>
-    <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-    <!-- Bootstrap + Steller main styles -->
-    <link rel="stylesheet" href="steller.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steven Caldeira | Engineering Management Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #2563eb;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .skill-pill {
+            transition: all 0.3s ease;
+        }
+        .skill-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-
-    <!-- Page navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" data-spy="affix" data-offset-top="0">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="assets/imgs/logo.svg" alt=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#service">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a> <!-- Added Skills link here -->
-                    </li>                   
-                    <li class="nav-item">
-                        <a class="nav-link" href="#certifications">Certifications</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#education">Education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Hobbies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="- btn btn-primary rounded ml-4" href="components.html">Hidden</a>
-                    </li>
-                </ul>
-            </div>
-        </div>          
-    </nav>
-    <!-- End of page navibation -->
-
-    <!-- Page Header -->
-    <header class="header" id="home">
-        <div class="container">
-            <div class="infos">
-                <h6 class="subtitle">Hello,I'm</h6>
-                <h6 class="title">Steven Caldeira</h6>
-                <p> USC : Masters in Engineering Management</p>
-
-                <div class="buttons pt-3">
-                    <!--<a <button class="btn btn-primary rounded">HIRE ME</button> -->
-                    <a href="./STEVEN_CALDEIRA.pdf" class="btn btn-dark rounded" download style="width: 150px;">DOWNLOAD CV</a>
-
-                </div>      
-
-                <div class="socials mt-4">
-                    <a class="social-item" href="https://www.facebook.com/steven.caldeira.5/" target="_blank"><i class="ti-facebook"></i></a>
-                    <a class="social-item" href="mailto:caldeira@usc.edu"><i class="ti-google"></i></a>
-                    <a class="social-item" href="https://www.linkedin.com/in/steven-caldeira/" target="_blank"><i class="ti-linkedin"></i></a>
-                    <!--<a class="social-item" href="https://wa.me/12132450547" target="_blank"><i class="ti-whatsapp"></i></a>-->
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text">Steven Caldeira</span>
                 </div>
-            </div>              
-            <div class="img-holder">
-                <img src="assets/imgs/man.svg" alt="">
-            </div>      
-        </div>  
-
-        <!-- Header-widget -->
-        <div class="widget">
-            <div class="widget-item">
-                <h2>12+</h2>
-                <p>Achievements</p>
-            </div>
-            <div class="widget-item">
-                <h2>55+</h2>
-                <p>Project Completed</p>
-            </div>
-            <div class="widget-item">
-                <h2>5+</h2>
-                <p>Certifications</p>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-700">About</a>
+                    <a href="#experience" class="nav-link text-gray-700 hover:text-blue-700">Experience</a>
+                    <a href="#education" class="nav-link text-gray-700 hover:text-blue-700">Education</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-700">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-700">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="text-gray-700">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </header>
-    <!-- End of Page Header -->
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4">
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-700">About</a>
+            <a href="#experience" class="block py-2 text-gray-700 hover:text-blue-700">Experience</a>
+            <a href="#education" class="block py-2 text-gray-700 hover:text-blue-700">Education</a>
+            <a href="#projects" class="block py-2 text-gray-700 hover:text-blue-700">Projects</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-700">Contact</a>
+        </div>
+    </nav>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Steven Caldeira - Hero Section</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            .gradient-bg {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+            
+            .card-shadow {
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            }
+            
+            .profile-image {
+                clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%);
+                transition: transform 0.3s ease;
+            }
+            
+            .profile-image:hover {
+                transform: scale(1.05);
+            }
+            
+            .floating-element {
+                animation: float 6s ease-in-out infinite;
+            }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-20px); }
+            }
+            
+            .text-gradient {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+        </style>
+    </head>
+    <body>
     
-    <!-- About section -->
-    <section id="about" class="section mt-3">
-        <div class="container mt-5">
-            <div class="row text-center text-md-left">
-                <div class="col-md-3">
-                    <img src="assets/imgs/avatar.jpg" alt="" class="img-thumbnail mb-4">
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Steven Caldeira - Hero Section</title>
+            <script src="https://cdn.tailwindcss.com"></script>
+            <style>
+                .gradient-bg {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                }
+                
+                .card-shadow {
+                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                }
+                
+                .profile-image {
+                    clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%);
+                    transition: transform 0.3s ease;
+                }
+                
+                .profile-image:hover {
+                    transform: scale(1.05);
+                }
+                
+                .floating-element {
+                    animation: float 6s ease-in-out infinite;
+                }
+                
+                @keyframes float {
+                    0%, 100% { transform: translateY(0px); }
+                    50% { transform: translateY(-20px); }
+                }
+                
+                .text-gradient {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                }
+            </style>
+        </head>
+        <body>
+        
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Steven Caldeira - Hero Section</title>
+                <script src="https://cdn.tailwindcss.com"></script>
+                <style>
+                    .gradient-bg {
+                        background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+                    }
+                    
+                    .card-shadow {
+                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                    }
+                    
+                    .profile-image {
+                        clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%);
+                        transition: transform 0.3s ease;
+                    }
+                    
+                    .profile-image:hover {
+                        transform: scale(1.05);
+                    }
+                    
+                    .floating-element {
+                        animation: float 6s ease-in-out infinite;
+                    }
+                    
+                    @keyframes float {
+                        0%, 100% { transform: translateY(0px); }
+                        50% { transform: translateY(-20px); }
+                    }
+                    
+                    .text-gradient {
+                        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                    }
+                </style>
+            </head>
+            <body>
+            
+            <!-- Hero Section -->
+            <section id="about" class="min-h-screen flex items-center gradient-bg relative overflow-hidden">
+                <!-- Background Elements -->
+                <div class="absolute inset-0 opacity-10">
+                    <div class="absolute top-20 left-20 w-72 h-72 bg-white rounded-full floating-element"></div>
+                    <div class="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full floating-element" style="animation-delay: -2s;"></div>
+                    <div class="absolute top-1/2 left-1/4 w-48 h-48 bg-white rounded-full floating-element" style="animation-delay: -4s;"></div>
                 </div>
-                <div class="pl-md-4 col-md-9">
-                    <h6 class="title">Steven Caldeira</h6>
-                    <p class="subtitle">USC MSEMT</p>
-                    <p>I'm Steven Caldeira, an engineering management professional with experience in facilities, utilities, and project management across biotech, marine, and logistics industries. Currently pursuing my Master’s in Engineering Management at USC, I’m focused on driving efficiency, cost savings, and regulatory compliance.</p>
-                    <p>In my roles, I’ve improved HVAC efficiency, automated data processing, and led teams to consistently deliver projects on time. With skills in technical software and Lean Six Sigma, I’m passionate about making impactful improvements and achieving measurable results.</p>
-                    <a href="./STEVEN_CALDEIRA.pdf" class="btn btn-secondary rounded" download style="width: 150px;">DOWNLOAD CV</a>                   
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="flex flex-col lg:flex-row items-center gap-12">
+                        
+                        <!-- Image Section -->
+                        <div class="lg:w-1/2 flex justify-center">
+                            <div class="relative">
+                                <!-- Main Image Container -->
+                                <div class="bg-white p-6 rounded-2xl card-shadow transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                                    <img 
+                                        src="https://stevencaldeira.github.io/assets/imgs/avatar.jpg" 
+                                        alt="Steven Caldeira" 
+                                        class="w-80 h-96 object-cover profile-image"
+                                    >
+                                </div>
+                                
+                                <!-- Decorative Elements -->
+                                <div class="absolute -top-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full opacity-80"></div>
+                                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-pink-400 rounded-full opacity-60"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Content Section -->
+                        <div class="lg:w-1/2 text-white">
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="text-lg font-medium mb-2 opacity-90">Hello, I'm</p>
+                                    <h1 class="text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                                        Steven <br>
+                                        <span class="text-gradient">Caldeira</span>
+                                    </h1>
+                                    <h2 class="text-2xl lg:text-3xl font-light mb-8 opacity-90">
+                                        Engineering Management Professional
+                                    </h2>
+                                </div>
+                                
+                                <div class="space-y-4 text-lg opacity-90 leading-relaxed">
+                                    <p>
+                                        An engineering management professional with hands-on experience in 
+                                        <span class="font-semibold text-yellow-300">facilities, utilities, and project management</span> 
+                                        across biotech, marine, and logistics industries.
+                                    </p>
+                                    
+                                    <p>
+                                        Master's in Engineering Management from USC, specializing in 
+                                        <span class="font-semibold text-yellow-300">system reliability, operational efficiency, and regulatory compliance</span>.
+                                    </p>
+                                    
+                                    <p>
+                                        Passionate about transforming challenges into 
+                                        <span class="font-semibold text-yellow-300">measurable results and sustainable improvements</span>.
+                                    </p>
+                                </div>
+                                
+                                <!-- Action Buttons -->
+                                <div class="flex flex-col sm:flex-row gap-4 pt-8">
+                                    <a href="#contact" 
+                                       class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 text-center shadow-lg">
+                                        Let's Connect
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white opacity-70">
+                    <div class="animate-bounce">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+            
+            </body>
+            </html>
+
+<!-- Experience Section -->
+<section id="experience" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4 gradient-text">Professional Experience</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                My journey through diverse engineering roles across biotech, marine, and logistics design industries
+            </p>
+        </div>
+        
+        <div class="space-y-12">
+            <!-- Boehringer Ingelheim -->
+            <div class="flex flex-col md:flex-row" data-aos="fade-up">
+                <div class="md:w-1/3 mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold text-blue-700">Boehringer Ingelheim</h3>
+                    <p class="text-gray-600">Fremont, CA</p>
+                    <p class="text-gray-500">Facilities Maintenance Tech / Intern</p>
+                </div>
+                <div class="md:w-2/3">
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Managed utility systems: WFI, RODI, Plant Steam, Cleanroom monitoring</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Built live dashboards (SAC, Power BI) for 700+ SAP work orders</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Conducted P&amp;ID reviews, RCA, and PiVision data analysis for system reliability</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Improved maintenance tracking, backlog reduction, and GMP compliance</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Genentech -->
+            <div class="flex flex-col md:flex-row" data-aos="fade-up">
+                <div class="md:w-1/3 mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold text-blue-700">Genentech, Roche Group</h3>
+                    <p class="text-gray-600">Vacaville, CA</p>
+                    <p class="text-gray-500">Facilities &amp; Utilities Intern</p>
+                </div>
+                <div class="md:w-2/3">
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Supported utility systems: HVAC, Chillers, Compressors, Boilers, Cooling Towers, WRO</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Designed floor plans &amp; pressure analysis to boost HVAC efficiency</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Automated data processing with Python &amp; Google Scripts (60% faster QA)</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Coordinated projects with contractors, ensuring on-time delivery</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Trained in cGMP, SOPs, OSHA standards for compliance</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- UMA Marine -->
+            <div class="flex flex-col md:flex-row" data-aos="fade-up">
+                <div class="md:w-1/3 mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold text-blue-700">UMA Marine Services</h3>
+                    <p class="text-gray-600">Dubai Maritime City, UAE</p>
+                    <p class="text-gray-500">Procurement Engineer</p>
+                </div>
+                <div class="md:w-2/3">
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Directed procurement &amp; inventory for marine engineering projects</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Led a 15-member workshop team, improving output by 15%</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Negotiated client contracts and boosted sales/customer satisfaction</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Aries Marine -->
+            <div class="flex flex-col md:flex-row" data-aos="fade-up">
+                <div class="md:w-1/3 mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold text-blue-700">Aries Marine &amp; Engg. Services</h3>
+                    <p class="text-gray-600">Goa, India</p>
+                    <p class="text-gray-500">Piping Design Engineer</p>
+                </div>
+                <div class="md:w-2/3">
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Delivered piping design &amp; 3D modeling using AutoCAD, ZW-CAD, Cadmatic</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Integrated BWTS piping with existing systems (DIN, JIS, ANSI)</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Prepared layouts, MTOs, and detailed templates improving efficiency</span></li>
+                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Applied lean project planning for multiple ship engineering projects</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4 gradient-text">Education & Certifications</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">My academic background and professional certifications</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Education -->
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-700">Education</h3>
+                    <div class="space-y-8">
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i data-feather="book" class="text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">University of Southern California</h4>
+                                    <p class="text-gray-600">Master of Science in Engineering Management</p>
+                                    <p class="text-gray-500">2023 - 2025</p>
+                                    <p class="mt-2 text-gray-700">Dean's Master's Scholarship recipient</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i data-feather="book" class="text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Goa University, AITD</h4>
+                                    <p class="text-gray-600">Bachelor of Engineering in Mechanical Engineering</p>
+                                    <p class="text-gray-500">2017 - 2021</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certifications -->
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-700">Certifications</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i data-feather="award" class="text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Certified Associate in Project Management (CAPM®)</h4>
+                                <p class="text-gray-600">PMI</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i data-feather="award" class="text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Lean Six Sigma Black Belt</h4>
+                                <p class="text-gray-600">CSSC</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i data-feather="award" class="text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">OSHA 30-Hour GIC</h4>
+                                <p class="text-gray-600">U.S. DOL</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i data-feather="award" class="text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">GMP Fundamentals: GMP - Buildings and Facilities</h4>
+                                <p class="text-gray-600">ISPE</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- Service section -->
-<section id="service" class="section">
-    <div class="container text-center">
-        <h6 class="section-title mb-4">EXPERIENCE</h6>
-
-        <div class="row">
-            <!-- Facilities & Utilities Engineering Intern -->
-            <div class="col-sm-6 col-md-6 mb-4">
-                <div class="custom-card card border" data-toggle="modal" data-target="#experienceModal1">
-                    <div class="card-body">
-                        <i class="icon ti-star"></i>
-                        <h5>Genentech - Member of the Roche group </h5>Facilities & Utilities Engineering Intern </h5>  <br> Vacaville, CA </h5>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4 gradient-text">Projects</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Innovative solutions and technical implementations</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in">
+                    <div class="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <i data-feather="cpu" class="text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">SAP SAC Dashboard Development</h3>
+                    <p class="text-gray-600 mb-4">Created a live dashboard for 700+ PM/CM work orders, increasing maintenance tracking efficiency by 30% at Boehringer Ingelheim.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">SAP</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Data Analytics</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Dashboard</span>
                     </div>
                 </div>
-            </div>
-
-            <!-- Procurement Engineer -->
-            <div class="col-sm-6 col-md-6 mb-4">
-                <div class="custom-card card border" data-toggle="modal" data-target="#experienceModal2">
-                    <div class="card-body">
-                        <i class="icon ti-star"></i>
-                        <h5>UMA Marine Services </h5> Procurement Engineer</h5>  <br> Dubai, UAE </h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Piping Design Engineer -->
-            <div class="col-sm-6 col-md-6 mb-4">
-                <div class="custom-card card border" data-toggle="modal" data-target="#experienceModal3">
-                    <div class="card-body">
-                        <i class="icon ti-star"></i>
-                        <h5>Aries Marine Engineering Services LLC. </h5> Piping Design Engineer</h5>  <br> Goa, India </h5>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Operations Manager -->
-            <div class="col-sm-6 col-md-6 mb-4">
-                <div class="custom-card card border" data-toggle="modal" data-target="#experienceModal4">
-                    <div class="card-body">
-                        <i class="icon ti-star"></i>
-                        <h5>Storage Scholar </h5> Operations Manager</h5>  <br> Los Angeles, CA </h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End of Section -->
-
-<!-- Modals for Each Experience -->
-
-<!-- Modal 1: Facilities & Utilities Engineering Intern -->
-<div class="modal fade" id="experienceModal1" tabindex="-1" role="dialog" aria-labelledby="experienceModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="experienceModalLabel1">Facilities & Utilities Engineering Intern</h5>
-                <span class="modal-duration ml-auto mr-3">May 2024 - Aug 2024</span> <!-- Added duration text here -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p> • Coordinated project management efforts, facilitating collaboration between the Project Manager and contractors, achieving a
-                    100% on-time project completion rate and expediting timelines by 15% through meticulous planning and communication<br><br>
-                    • Redesigned building floor plans and implemented differential pressure analysis, empowering HVAC engineers to identify
-                    pressure loss sources and elevating system efficiency by 18%<br><br>
-                    • Created advanced Python and Google Script automation tools to increase data verification and quality assurance processes,
-                    restructuring BAS Team data processing efficiency by 60% for Insight and Desigo applications<br><br>
-                    • Bolstered cGMP compliance by implementing 15+ SOPs for maintenance, calibration, and change controls, supporting regulatory
-                    adherence across utilities and manufacturing systems while minimizing downtime risks<br><br>
-                    • Engaged in projects for various utility systems, including Compressors, Chillers, HVAC, Boilers, Cooling Towers, and WRO
-                    systems, enhancing system reliability and improving overall operational performance by 20%</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Modal 2: Procurement Engineer -->
-<div class="modal fade" id="experienceModal2" tabindex="-1" role="dialog" aria-labelledby="experienceModalLabel2" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="experienceModalLabel2">Procurement Engineer</h5>
-                <span class="modal-duration ml-auto mr-3"> Dec 2022 - Jul 2023</span> <!-- Added duration text here -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p> • Directed procurement processes and inventory management, developed over 100 quotations utilizing MS tools, and designed
-                    branded email signatures for all UMA branches, boosting professional communication effectiveness by 10%<br><br>
-                    • Exhibited exceptional leadership in overseeing a team of 15 workshop technicians, delegating tasks, and ensuring rigorous
-                    adherence to production timelines, resulting in a noteworthy 15% improvement<br><br>
-                    • Employed entrepreneurial strategies resulting in a 15% surge in sales and customer satisfaction, fostered trust through effective
-                    delivery of quality products and adept client coordination and negotiation</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 3: Piping Design Engineer -->
-<div class="modal fade" id="experienceModal3" tabindex="-1" role="dialog" aria-labelledby="experienceModalLabel3" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="experienceModalLabel3">Piping Design Engineer</h5>
-                <span class="modal-duration ml-auto mr-3">Oct 2021 - Oct 2022</span> <!-- Added duration text here -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>• Led 8+ projects, including vessel installations, by optimizing schedules and resolving complex mechanical issues, improving on-
-                    time delivery by 25% and enhancing safety<br><br>
-                    • Executed 3D modeling of BWTS pipelines, and equipment foundations using Cadmatic Outfitting, ZW-CAD, and AutoCAD for
-                    2D drafting, Interpreted technical drawings and ship hull construction drawings<br><br>
-                    • Integrated BWTS piping with existing piping systems(P&ID), prepared layouts, and generated material take-offs. Designed a
-                    detailed template, resulting in a 30% increase in 2D detailing drawing efficiency<br><br>
-                    • Facilitated teams in project planning and scheduling through weekly meetings, increasing delivery by 25%</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 4: Operations Manager -->
-<div class="modal fade" id="experienceModal4" tabindex="-1" role="dialog" aria-labelledby="experienceModalLabel4" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="experienceModalLabel4">Operations Manager</h5>
-                <span class="modal-duration ml-auto mr-3">Apr 2024 - May 2024</span> <!-- Added duration text here -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>• Streamlined logistics and inventory management for 50+ students, utilizing Google Maps pin locations to refine pickup and
-                    delivery routes, reducing storage costs by 15% and boosting operational efficiency by 30%.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-    <!-- End of Sectoin -->
-
- <!-- Skills section -->
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Skills Section</title>
-     <style>
-         /* CSS Styles */
-         .container {
-             width: 80%;
-             margin: 0 auto;
-         }
- 
-         .section-title {
-             text-transform: uppercase;
-             font-size: 2rem;
-             font-weight: bold;
-             color: #333;
-             margin-bottom: 40px;
-             text-align: center;
-         }
- 
-         .skills-subtitle {
-             font-size: 1.5rem;
-             font-weight: bold;
-             color: #000; /* Black color for subtitle */
-             text-align: center;
-             margin-top: 30px;
-             margin-bottom: 20px;
-         }
- 
-         .skills-container {
-             display: flex;
-             flex-wrap: wrap;
-             justify-content: center;
-             gap: 12px;
-             margin-bottom: 40px;
-         }
- 
-         .skill-box {
-             background-color: #fff6e6; /* Light orange background */
-             border: 2px solid #ff6600; /* Orange border */
-             padding: 12px 20px;
-             border-radius: 18px;
-             color: #333; /* Original text color */
-             font-weight: 600;
-             font-size: 0.9rem;
-             display: inline-block;
-             transition: transform 0.2s, box-shadow 0.2s;
-             cursor: pointer;
-             box-shadow: 2px 4px 8px rgba(255, 102, 0, 0.15); /* Light orange shadow */
-         }
- 
-         .skill-box:hover {
-             transform: scale(1.05);
-             box-shadow: 4px 6px 12px rgba(255, 102, 0, 0.3); /* Darker shadow on hover */
-             background-color: #ffe0b3; /* Slightly darker orange on hover */
-         }
-     </style>
- </head>
- <body>
- 
-     <section class="section" id="skills">
-         <div class="container text-center">
-             <h6 class="section-title mb-6">Skills</h6>
-             
-             <!-- Technical Skills -->
-             <h6 class="skills-subtitle">Technical Skills</h6>
-             <div class="skills-container">
-                 <span class="skill-box">MS Project</span>
-                 <span class="skill-box">SAP S/4HANA</span>
-                 <span class="skill-box">MS Excel</span>
-                 <span class="skill-box">Jira</span>
-                 <span class="skill-box">AutoCAD</span>
-                 <span class="skill-box">NetSuite</span>
-                 <span class="skill-box">TZA Protrack</span>
-                 <span class="skill-box">Tableau</span>
-                 <span class="skill-box">SQL</span>
-                 <span class="skill-box">R</span>
-                 <span class="skill-box">Power BI</span>
-                 <span class="skill-box">Oracle ERP</span>
-                 <span class="skill-box">Microsoft Dynamics</span>
-                 <span class="skill-box">Python</span>
-                 <span class="skill-box">Slack</span>
-                 <span class="skill-box">5S</span>
-                 <span class="skill-box">Just-In-Time (JIT)</span>
-                 <span class="skill-box">Kaizen</span>
-                 <span class="skill-box">Kanban</span>
-                 <span class="skill-box">Trello</span>
-                 <span class="skill-box">Monday.com</span>
-                 <span class="skill-box">Asana</span>
-                 <span class="skill-box">Finite Element Analysis (FEA)</span>
-                 <span class="skill-box">Computer-Aided Manufacturing (CAM)</span>
-                 <span class="skill-box">Thermodynamics</span>
-                 <span class="skill-box">Heat Transfer</span>
-                 <span class="skill-box">Mechanical Systems Design</span>
-                 <span class="skill-box">Material Science and Engineering</span>
-                 <span class="skill-box">Pneumatics and Hydraulics</span>
-                 <span class="skill-box">3D Modeling and Simulation (SolidWorks, CATIA)</span>
-                 <span class="skill-box">Machining and CNC Programming</span>
-                 <span class="skill-box">Photoshop</span>
-                 <span class="skill-box">Web Design</span>
-                 <span class="skill-box">App Design</span>
-                 <span class="skill-box">SEO</span>
-                 <span class="skill-box">MS Office Suite</span>
-                 <span class="skill-box">Canva</span>
-                 <span class="skill-box">Flixier</span>
-                 <span class="skill-box">Visio</span>
-                 <span class="skill-box">Gantt Chart Development</span>
-                 <span class="skill-box">Python Scripting</span>
-             </div>
-     
-             <!-- Management Skills -->
-             <h6 class="skills-subtitle">Management Skills</h6>
-             <div class="skills-container">
-                 <span class="skill-box">Distribution Management</span>
-                 <span class="skill-box">Supplier Management</span>
-                 <span class="skill-box">Procurement</span>
-                 <span class="skill-box">Sourcing</span>
-                 <span class="skill-box">Labor Planning</span>
-                 <span class="skill-box">Supply Chain Management</span>
-                 <span class="skill-box">Contingency Planning</span>
-                 <span class="skill-box">Inventory Management</span>
-                 <span class="skill-box">Traditional Project Management (TPM)</span>
-                 <span class="skill-box">Agile (Scrum) Methodologies</span>
-                 <span class="skill-box">Demand Planning</span>
-                 <span class="skill-box">Supply Planning</span>
-                 <span class="skill-box">Supplier Relationship Management (SRM)</span>
-                 <span class="skill-box">Operations Management</span>
-                 <span class="skill-box">Logistics and Supply Chain Management</span>
-                 <span class="skill-box">Project Management</span>
-                 <span class="skill-box">Optimization Techniques</span>
-                 <span class="skill-box">Budgeting and Cost Control</span>
-                 <span class="skill-box">Resource Allocation</span>
-                 <span class="skill-box">Change Management</span>
-                 <span class="skill-box">Quality Assurance</span>
-                 <span class="skill-box">Project Scheduling (Gantt Charts, PERT)</span>
-                 <span class="skill-box">Earned Value Management (EVM)</span>
-                 <span class="skill-box">Project Documentation</span>
-                 <span class="skill-box">Time Management</span>
-                 <span class="skill-box">Marketing Strategy</span>
-                 <span class="skill-box">Strategic Sourcing</span>
-                 <span class="skill-box">Team Coordination</span>
-                 <span class="skill-box">Scheduling</span>
-                 <span class="skill-box">Inventory Control</span>
-             </div>
-     
-             <!-- Interpersonal Skills -->
-             <h6 class="skills-subtitle">Interpersonal Skills</h6>
-             <div class="skills-container">
-                 <span class="skill-box">Critical Thinking</span>
-                 <span class="skill-box">Problem Solving</span>
-                 <span class="skill-box">Leadership</span>
-                 <span class="skill-box">Negotiation</span>
-                 <span class="skill-box">Planning</span>
-                 <span class="skill-box">Scheduling</span>
-                 <span class="skill-box">Teamwork</span>
-                 <span class="skill-box">Communication</span>
-                 <span class="skill-box">Adaptability</span>
-                 <span class="skill-box">Proactive Troubleshooting</span>
-                 <span class="skill-box">Detail-Oriented</span>
-                 <span class="skill-box">Collaboration</span>
-                 <span class="skill-box">Continuous Improvement</span>
-                 <span class="skill-box">Data-Driven Decision Making</span>
-                 <span class="skill-box">GMP Fundamentals</span>
-                 <span class="skill-box">Lean Six Sigma Green Belt</span>
-             </div>
-         </div>
-     </section>
- 
- </body>
- </html>
- 
-<!-- End of Sectoin -->
-
-<!-- Certification Section -->
-<section class="certification-section" id="certifications">
-    <div class="container text-center certification-content">
-        <h2 class="certification-title">CERTIFICATIONS</h2>
-        <h6 class="section-subtitle mb-4">Click To View</h6>
-        <div class="certificates">
-            <!-- Certificate 1 -->
-            <div class="certificate">
-                <a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification1.jpg" target="_blank">
-                    <div class="certificate-box">
-                        <img src="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification1.jpg" alt="Lean Six Sigma Green Belt">
-                    </div>
-                </a>
-                <p class="certificate-name"><a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification1.jpg" target="_blank">Lean Six Sigma Green Belt</a></p>
-            </div>
-            <!-- Certificate 2 -->
-            <div class="certificate">
-                <a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification2.jpg" target="_blank">
-                    <div class="certificate-box">
-                        <img src="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification2.jpg" alt="GMP Buildings & Facilities">
-                    </div>
-                </a>
-                <p class="certificate-name"><a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification2.jpg" target="_blank">GMP Buildings & Facilities</a></p>
-            </div>
-            <!-- Certificate 3 -->
-            <div class="certificate">
-                <a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification3.jpg" target="_blank">
-                    <div class="certificate-box">
-                        <img src="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification3.jpg" alt="Python - Beginners">
-                    </div>
-                </a>
-                <p class="certificate-name"><a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification3.jpg" target="_blank">Python - Beginners</a></p>
-            </div>
-            <!-- New Certificates -->
-            <!-- Certificate 4 -->
-            <div class="certificate">
-                <a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification4.jpg" target="_blank">
-                    <div class="certificate-box">
-                        <img src="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification4.jpg" alt="Certification 4 Description">
-                    </div>
-                </a>
-                <p class="certificate-name"><a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification4.jpg" target="_blank">AutoCad 2020</a></p>
-            </div>
-            <!-- Certificate 5 -->
-            <div class="certificate">
-                <a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification5.jpg" target="_blank">
-                    <div class="certificate-box">
-                        <img src="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification5.jpg" alt="Certification 5 Description">
-                    </div>
-                </a>
-                <p class="certificate-name"><a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification5.jpg" target="_blank">Solidworks</a></p>
-            </div>
-            <!-- Certificate 6 -->
-            <div class="certificate">
-                <a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification6.jpg" target="_blank">
-                    <div class="certificate-box">
-                        <img src="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification6.jpg" alt="Certification 6 Description">
-                    </div>
-                </a>
-                <p class="certificate-name"><a href="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Certification6.jpg" target="_blank">LSSYB</a></p>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End of Certification Section -->
-
-
-
-<!-- Education Section -->
-<section id="education" class="section text-center">
-    <h6 class="section-title mb-4">EDUCATION</h6>
-
-    <!-- University of Southern California Card -->
-    <div class="education-card" data-toggle="modal" data-target="#educationModal1">
-        <h5>University of Southern California, Los Angeles, CA</h5>
-        <p>Master of Science in Engineering Management</p>
-        <p>August 2023 - May 2025</p>
-    </div>
-
-    <!-- Goa University Card -->
-    <div class="education-card" data-toggle="modal" data-target="#educationModal2">
-        <h5>Goa University - Agnel Institute of Technology and Design, Goa, India</h5>
-        <p>Bachelor of Engineering in Mechanical Engineering</p>
-        <p>July 2017 - September 2021</p>
-    </div>
-</section>
-<!-- Modals for Each Education Card -->
-
-<!-- Modal 1: USC -->
-<div class="modal fade" id="educationModal1" tabindex="-1" role="dialog" aria-labelledby="educationModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="educationModalLabel1">University of Southern California, Los Angeles, CA</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Degree:</strong> Master of Science in Engineering Management</p>
-                <p><strong>Duration:</strong> August 2023 - May 2025</p>
-                <p><strong>Coursework:</strong> Project Management, Leading & Managing Engineering Teams, Statistics for Engineers, ERP systems (SAP)</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 2: Goa University -->
-<div class="modal fade" id="educationModal2" tabindex="-1" role="dialog" aria-labelledby="educationModalLabel2" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="educationModalLabel2">Goa University - Agnel Institute of Technology and Design, Goa, India</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Degree:</strong> Bachelor of Engineering in Mechanical Engineering</p>
-                <p><strong>Duration:</strong> July 2017 - September 2021</p>
-                <p><strong>Coursework:</strong> Manufacturing practices, Industrial safety, Corporate Finance, CAD, Materials Science, Heat Transfer, Control Systems</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End of Education Section  -->
-
-<!-- Projects Section -->
-<section class="projects" id="projects">
-    <div class="container text-center">
-        <h6 class="section-title mb-6">Projects</h6>
-        <p class="section-subtitle">Click To View</p>
-        
-        <!-- scrolling wrapper -->
-        <div class="scrolling-wrapper">
-            <!-- Project Card 1 -->
-            <div class="project-card" data-toggle="modal" data-target="#projectModal1" style="background-image: url('assets/imgs/Project1.png');">
-                <div class="project-footer">
-                    <h6 class="project-title">Magnetic Oil Spill Collection Prototype <br>Undergrad Project</h6>
-                </div>
-            </div>
-
-            <!-- Project Card 2 -->
-            <div class="project-card" data-toggle="modal" data-target="#projectModal2" style="background-image: url('assets/imgs/Project2.png');">
-                <div class="project-footer">
-                    <h6 class="project-title">Project Management <br> USC Housing Application</h6>
-                </div>
-            </div>
-
-            <!-- Project Card 3 -->
-            <div class="project-card" data-toggle="modal" data-target="#projectModal3" style="background-image: url('assets/imgs/Project3.png');">
-                <div class="project-footer">
-                    <h6 class="project-title">Genentech  <br> Python Excell Data Organizer</h6>
-                </div>
-            </div>
-
-            <!-- Project Card 4 -->
-            <div class="project-card" data-toggle="modal" data-target="#projectModal4" style="background-image: url('assets/imgs/Project4.png');">
-                <div class="project-footer">
-                    <h6 class="project-title">UMA Marine <br>  Signature Creation</h6>
-                </div>
-            </div>
-
-            <!-- Add more project cards here in a similar format -->
-        </div>
-        
-        <!-- Scroll Indicators -->
-        <div class="project-container">  <!-- Make sure this container spans the entire width and section of your project cards -->
-            <!-- Project Cards go here -->
-            <div class="scroll-indicators">
-                <div class="scroll-arrow scroll-left">
-                    <span>&lt;</span>
-                </div>
-                <div class="scroll-arrow scroll-right">
-                    <span>&gt;</span>
-                </div>
-            </div>
-        </div>
-</section>
-
-
-<!-- Modals for Each Project -->
-<!-- Modal for Magnetic Oil Spill Collection Prototype -->
-<div class="modal fade" id="projectModal1" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="projectModalLabel1">Magnetic Oil Spill Collection Prototype</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h6>Introduction:</h6>
-                <p>An oil spill is the release of a liquid petroleum hydrocarbon into the environment, especially the marine ecosystem, due to human activity, and is a form of pollution...</p>
                 
-                <h6>Problem Statement:</h6>
-                <ul>
-                    <li>During an oil spill, heavy hydrocarbons have the potential to sink...</li>
-                    <li>Most skimmers are static, meaning they do not move...</li>
-                    <li>The efficiency of conventional skimmers decreases in rough waters...</li>
-                    <li>Using chemical dispersants affects aquatic life...</li>
-                </ul>
-                <!-- Add the image here -->
-                <img src="assets/imgs/Project10.jpg" alt="Problem Statement Image" class="modal-image">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for Another Project (Example) -->
-<div class="modal fade" id="projectModal2" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel2" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="projectModalLabel2">Project Management – USC Housing Application</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Content for this project’s modal -->
-                <h6>Introduction:</h6>
-                    <p>The USC Housing App project addresses the pressing need for a streamlined, centralized platform for USC students to manage their housing-related requirements. With the challenges of locating reliable housing reviews, finding compatible roommates, and coordinating housing-associated transactions, USC students face a complex, time-consuming, and often fragmented process. The USC Housing App is designed to simplify and enhance the student housing experience by consolidating essential features such as housing reviews, roommate matching, and a secure marketplace into one accessible application. Built using technologies like Flutter for compatibility with both iOS and Android, the app will integrate with USC’s Single Sign-On (SSO) system, ensuring a safe and seamless user experience. This initiative not only aims to provide convenience but also promotes sustainability by encouraging the reuse of goods within the student community. Additionally, the app will generate revenue through in-app advertisements and featured listings, creating a sustainable financial model for USC.</p>
-                    
-                    <h6>Problem Statement:</h6>
-                    <ul>
-                        <li>USC students currently encounter multiple challenges in managing their housing needs.</li>
-                        <li>The lack of a unified platform for housing search, roommate finding, and marketplace transactions leads to inefficiencies, scattered information, and sometimes unreliable resources.</li>
-                        <li>Existing alternatives, such as social media groups or third-party housing websites, do not provide the same level of security, student-focused features, or verified information.</li>
-                        <li>These platforms lack integration with USC’s infrastructure, which would enhance security and usability.</li>
-                        <li>The USC Housing App addresses these challenges by providing a single, student-centered solution that offers verified housing options, compatibility-based roommate matching, and a trusted marketplace for goods.</li>
-                        <li>By implementing this app, USC aims to enhance student experience, streamline housing processes, and contribute to sustainable practices through product reuse.</li>
-                </ul>                    
-            </div>
-                     <img src="J:\My Drive\Portfolio\Stevens Portfolio\public_html\assets\imgs\Project20.jpg" alt="Problem Statement Image" class="modal-image">
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- Project 2 -->
+                <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="bg-green-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <i data-feather="code" class="text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Python Excel Data Organizer</h3>
+                    <p class="text-gray-600 mb-4">Developed automation tools to increase data verification and quality assurance processes by 60% at Genentech.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Automation</span>
+                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Excel</span>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="bg-purple-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <i data-feather="tool" class="text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Magnetic Oil Spill Collection Prototype</h3>
+                    <p class="text-gray-600 mb-4">Designed and implemented an innovative solution for marine oil spill cleanup using magnetic principles.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Mechanical Design</span>
+                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Prototyping</span>
+                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Environmental</span>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="bg-yellow-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                        <i data-feather="edit" class="text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Signature Creation Tool</h3>
+                    <p class="text-gray-600 mb-4">Developed branded email signatures for all UMA Marine branches, boosting professional communication effectiveness by 10%.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Design</span>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Branding</span>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Communication</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- Modal for Another Project (Example) -->
-<div class="modal fade" id="projectModal3" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel2" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="projectModalLabel2">Genentech</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+    <!-- Skills Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4 gradient-text">Technical Skills</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">My professional capabilities and areas of expertise</p>
             </div>
-            <div class="modal-body">
-                <!-- Content for this project’s modal -->
-                <h6>Building Automation Team</h6>
-                 <ul>
-                     <li>Developed Python scripts for the Building Automation team, leveraging AI to efficiently process multiple Excel documents with large datasets of around 68,000 cells.</li>
-                     <li>Created a solution to compare and cross-reference data between different Excel files with extensive datasets, automating the process across multiple search sheets.</li>
-                     <li>This automation significantly streamlined data analysis and improved accuracy.</li>
-                     <li>Supported the team in handling complex, large-scale data comparisons with ease.</li>
-                    </ul>                    
-            </div>
-                     <!--<img src="J:/My Drive/Portfolio/steller/public_html/assets/imgs/Project20.jpg" alt="Problem Statement Image" class="modal-image"> -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal for Another Project (Example) -->
-<div class="modal fade" id="projectModal4" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel2" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="projectModalLabel2"> UMA MArine</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Content for this project’s modal -->
-                <h6>Building Automation Team</h6>
-                <ul>
-                    <li>Designed a professional email signature for multiple branches across UAE, Vietnam, Singapore, and India using Photoshop and Canva.</li>
-                    <li>Created a 3D animated spinning logo embedded within the signature to add a dynamic, polished touch to each email.</li>
-                    <li>Implemented a unified branding approach that provided a visually engaging and consistent look across all regional branches.</li>
-                </ul>                                
-            </div>
-                     <!--<img src="J:/My Drive/Portfolio/steller/public_html/assets/imgs/Project20.jpg" alt="Problem Statement Image" class="modal-image"> -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Add more modals here for additional projects in a similar format -->
-
-<!-- Custom CSS for Modal Width and Image Resizing -->
-<style>
-    /* Custom width for all project modals */
-    .modal-dialog {
-        max-width: 80%; /* Adjusts the width to 80% of the viewport */
-    }
-    /* Ensures the image fits within the modal width */
-    .modal-image {
-        max-width: 100%; /* Ensures the image fits the modal width */
-        height: auto;    /* Keeps the aspect ratio */
-        margin-top: 10px; /* Adds a bit of spacing above the image */
-    }
-</style>
-<!-- End of Projects Section -->
-
-<!-- Hobbies -->
-<section id="blog" class="section">
-    <div class="container text-center">
-        <h6 class="section-title mb-4">HOBBIES</h6>
-        <p class="mb-5 pb-4">When I’m not crafting masterpieces in my workshop, drumming up a storm, or strumming my way through guitar lessons, <br> you can find me plotting my next travel adventure—because who doesn’t need a break from their own genius every now and then? </p>
-
-        <div class="row text-left">
-            <div class="col-md-4">
-                <div class="card border mb-4">
-                    <img src="assets/imgs/blog-1.jpg" alt="" class="card-img-top w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Artwork</h5>
-                        <div class="post-details">
-                            <a href="javascript:void(0)">Fabrication, Woodworking</a>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Technical Skills -->
+                <div data-aos="fade-up">
+                    <div class="bg-white p-6 rounded-lg shadow-sm h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                <i data-feather="code" class="text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Technical Skills</h3>
                         </div>
-                        <p id="more-1" style="display:none;">
-                            In my free time, I immerse myself in hands-on, practical craftsmanship, working with handheld machinery and a range of tools to bring my ideas to life. My skills include woodworking, where I enjoy shaping and constructing pieces with care and precision, and welding, which allows me to create durable, intricate metalwork. I take pride in every step of the fabrication process, from conceptualization to the final, tangible product. This space is where I combine technical skills with creativity to make unique, functional, and aesthetically pleasing pieces.
-                        </p>
-                        <p id="less-1">
-                            In my free time, I immerse myself in hands-on, practical craftsmanship, working with handheld machinery and a range of tools to bring my ideas to life...
-                        </p>
-                        <a href="javascript:void(0);" onclick="toggleText('more-1', 'less-1');">Read More...</a>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">SAP Plant Maintenance</span>
+                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Excel Automation</span>
+                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">AutoCAD</span>
+                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Python Scripting</span>
+                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Building Management Systems</span>
+                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">3D Modeling</span>
+                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Data Analytics</span>
+                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Power BI</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border mb-4">
-                    <img src="assets/imgs/blog-2.jpg" alt="" class="card-img-top w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Music</h5>
-                        <div class="post-details">
-                            <a href="javascript:void(0)">Drums, Guitar</a>
+                
+                <!-- Management Skills -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white p-6 rounded-lg shadow-sm h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-2 rounded-full mr-3">
+                                <i data-feather="users" class="text-green-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Management Skills</h3>
                         </div>
-                        <p id="more-2" style="display:none;">
-                            Amidst the clattering of keyboards and the hum of engineering marvels, you'll often find me engaging in a slightly noisier pastime—drumming! Yes, I've mastered the art of hitting things rhythmically and call it music. Professional on the drums and a wannabe guitarist, I’m currently navigating the fretboard jungle, trying to make sense of six strings instead of drumsticks. So, if you hear a mix of calculated drum beats and the occasional off-tune guitar note, that's just me fine-tuning my musical arsenal. Who knows, maybe one day these skills could help orchestrate your projects, or at least keep our meetings upbeat!
-                        </p>
-                        <p id="less-2">
-                            Amidst the clattering of keyboards and the hum of engineering marvels, you'll often find me engaging in a slightly noisier pastime—drumming! Yes, I've...
-                        </p>
-                        <a href="javascript:void(0);" onclick="toggleText('more-2', 'less-2');">Read More...</a>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Project Management</span>
+                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Lean Six Sigma</span>
+                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Process Optimization</span>
+                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Team Leadership</span>
+                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Vendor Coordination</span>
+                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Inventory Control</span>
+                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Strategic Sourcing</span>
+                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">GMP Compliance</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border mb-4">
-                    <img src="assets/imgs/blog-3.jpg" alt="" class="card-img-top w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Travel</h5>
-                        <div class="post-details">
-                            <a href="javascript:void(0)">Utah, Arizona, Ca...</a>
+                
+                <!-- Soft Skills -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white p-6 rounded-lg shadow-sm h-full">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-2 rounded-full mr-3">
+                                <i data-feather="message-circle" class="text-purple-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Soft Skills</h3>
                         </div>
-                        <p id="more-3" style="display:none;">
-                            Where have my wanderlust and hiking boots taken me? To the dusty trails and breathtaking vistas of Nevada, Arizona, and Utah's finest national parks! Each park visit ticks off another glorious adventure and pushes my step counter to its limits. It’s not just about collecting souvenirs, but about accumulating stories and snapshots of nature’s finest artistry. With a map in one hand and a camera in the other, I’m on a mission to keep adding more stamps to my national park passport. So, stay tuned as I continue to traverse the great outdoors, one majestic park at a time—because the top side of every mountain is within reach!
-                        </p>
-                        <p id="less-3">
-                            Where have my wanderlust and hiking boots taken me? To the dusty trails and breathtaking vistas of Nevada, Arizona, and Utah's finest national parks! ...
-                        </p>
-                        <a href="javascript:void(0);" onclick="toggleText('more-3', 'less-3');">Read More...</a>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Problem Solving</span>
+                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Technical Writing</span>
+                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Client Communication</span>
+                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Cross-Functional Collaboration</span>
+                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Data-Driven Decision Making</span>
+                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Proactive Troubleshooting</span>
+                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Professional Communication</span>
+                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Continuous Improvement</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- End of Hobbies section. -->
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="position-relative section">
-    <div class="container text-center">
-        <h6 class="subtitle">Contact</h6>
-        <h6 class="section-title mb-4">Get In Touch With Me</h6>
-        <p class="mb-5 pb-4">You can reach me by email, text, phone, or WhatsApp—pretty much any way you'd like! <br> But if you’re looking for speed, a good ol' phone call is the express lane to my attention. 📞🚀 </p>
-
-        <div class="contact text-left">
-            <div class="form">
-                <h6 class="subtitle">Available 24/7</h6>
-                <h6 class="section-title mb-4">Get In Touch</h6>
-                <form action="https://formspree.io/f/xanyekwz" method="POST">
-                    <div class="form-group">
-                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="exampleInputPassword1" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" id="contact-message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block rounded w-lg">Send Message</button>
-                </form>
+    <!-- Hobbies Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4 gradient-text">Hobbies & Interests</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">What I enjoy outside of my professional work</p>
             </div>
-            <div class="contact-infos">
-                <div class="item">
-                    <i class="ti-location-pin"></i>
-                    <div class="">
-                        <h5>Location</h5>
-                        <p>1361 W Adams Blvd</p>
-                    </div>                          
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up">
+                    <div class="bg-red-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="tool" class="text-red-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Craftsmanship</h3>
+                    <p class="text-gray-600">Working with handheld machinery to create functional pieces</p>
                 </div>
-                <div class="item">
-                    <i class="ti-mobile"></i>
-                    <div>
-                        <h5>Phone Number</h5>
-                        <p>(123) 245-0547</p>
-                    </div>                          
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-yellow-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="music" class="text-yellow-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Music</h3>
+                    <p class="text-gray-600">Drumming and guitar lessons for creative expression</p>
                 </div>
-                <div class="item">
-                    <i class="ti-email"></i>
-                    <div class="mb-0">
-                        <h5>Email Address</h5>
-                        <p>Caldeira@usc.edu <br>stevencaldeira9@gmail.com</p>
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-green-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="globe" class="text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Travel</h3>
+                    <p class="text-gray-600">Exploring new cultures and adventures around the world</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-blue-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="camera" class="text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Photography</h3>
+                    <p class="text-gray-600">Instant print camera exploration and creative photography</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4 gradient-text">Get In Touch</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">I'm always open to discussing new opportunities and collaborations</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-6 text-blue-700">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i data-feather="mail" class="text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <a href="mailto:Stevencaldeira9@gmail.com" class="text-gray-600 hover:text-blue-600">Stevencaldeira9@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i data-feather="phone" class="text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <a href="tel:+12132450547" class="text-gray-600 hover:text-blue-600">+1 (213) 245-0547</a>
+                                    <p class="text-sm text-gray-500 mt-1">Preferred method for quick response</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i data-feather="message-square" class="text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">WhatsApp</h4>
+                                    <a href="https://wa.me/12132450547" class="text-gray-600 hover:text-blue-600">+1 (213) 245-0547</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i data-feather="linkedin" class="text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/steven-caldeira" target="_blank" class="text-gray-600 hover:text-blue-600">linkedin.com/in/steven-caldeira</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>                  
+                
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-6 text-blue-700">Send Me a Message</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>  
-    <div id="map">
-        <iframe src="https://snazzymaps.com/embed/61257"></iframe>
-    </div>      
-</section>
-<!-- End of Contact Section -->
+    </section>
 
- <!-- Page Footer -->
-<footer class="page-footer">
-  <div class="container">
-      <div class="row align-items-center">
-          <div class="col-sm-6">
-              <p>Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com" target="_blank">DevCRUD</a></p>
-          </div>
-          <div class="col-sm-6">
-              <div class="socials mt-4">
-                  <a class="social-item" href="https://www.facebook.com/steven.caldeira.5/" target="_blank"><i class="ti-facebook"></i></a>
-                  <a class="social-item" href="mailto:caldeira@usc.edu"><i class="ti-google"></i></a>
-                  <a class="social-item" href="https://www.linkedin.com/in/steven-caldeira/" target="_blank"><i class="ti-linkedin"></i></a>
-                  <!--<a class="social-item" href="https://wa.me/12132450547" target="_blank"><i class="ti-whatsapp"></i></a>-->
-              </div>
-          </div>
-      </div>
-  </div>
-</footer> 
-<!-- End of page footer -->
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold">Steven Caldeira</span>
+                    <p class="text-gray-400 mt-2">Engineering Management Professional</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/steven-caldeira" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                    <a href="mailto:Stevencaldeira9@gmail.com" class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="mail"></i>
+                    </a>
+                    <a href="tel:+12132450547" class="text-gray-400 hover:text-white transition duration-300">
+                        <i data-feather="phone"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Steven Caldeira. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#about" class="text-gray-400 hover:text-white text-sm transition duration-300">About</a>
+                    <a href="#experience" class="text-gray-400 hover:text-white text-sm transition duration-300">Experience</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white text-sm transition duration-300">Projects</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white text-sm transition duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<!-- core  -->
-<script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-<script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
-<!-- bootstrap 3 affix -->
-<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
-
-<!-- steller js -->
-<script src="steller.js"></script>
-
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            this.innerHTML = menu.classList.contains('hidden') ? 
+                '<i data-feather="menu"></i>' : '<i data-feather="x"></i>';
+            feather.replace();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    document.getElementById('menu-toggle').innerHTML = '<i data-feather="menu"></i>';
+                    feather.replace();
+                }
+            });
+        });
+        
+        // Replace feather icons
+        feather.replace();
+    </script>
 </body>
 </html>
