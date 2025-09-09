@@ -1,826 +1,632 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steven Caldeira | Engineering Management Professional</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .nav-link {
-            position: relative;
-        }
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #2563eb;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover:after {
-            width: 100%;
-        }
-        .skill-pill {
-            transition: all 0.3s ease;
-        }
-        .skill-pill:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .project-card {
-            transition: all 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Steven Caldeira | Engineering Management Professional</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS / Feather / Anime -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+
+  <!-- Inter font + base styles -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    .gradient-text { background: linear-gradient(90deg,#2563eb 0%,#1e40af 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .nav-link { position:relative; }
+    .nav-link:after { content:''; position:absolute; width:0; height:2px; bottom:0; left:0; background-color:#2563eb; transition:width .3s ease; }
+    .nav-link:hover:after { width:100%; }
+    .skill-pill { transition: all .3s ease; }
+    .skill-pill:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,.1); }
+    .project-card { transition: all .3s ease; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,.1); }
+    .gradient-bg { background: linear-gradient(135deg,#1e293b 0%,#334155 50%,#475569 100%); }
+    .card-shadow { box-shadow: 0 25px 50px -12px rgba(0,0,0,.25); }
+    .profile-image { clip-path: polygon(0% 0%,85% 0%,100% 15%,100% 100%,15% 100%,0% 85%); transition: transform .3s ease; }
+    .profile-image:hover { transform: scale(1.05); }
+    .floating-element { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-20px) } }
+    .text-gradient { background: linear-gradient(135deg,#3b82f6 0%,#1d4ed8 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+  </style>
+
+  <!-- Email Gate Modal styles -->
+  <style>
+    .eg-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;z-index:9999}
+    .eg-card{background:#fff;max-width:460px;width:92%;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.2);padding:24px;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    .eg-title{font-weight:700;font-size:20px;margin:0 0 8px}
+    .eg-row{display:flex;gap:8px;margin-top:8px}
+    .eg-input{flex:1;padding:12px 14px;border:1px solid #d0d7de;border-radius:10px;font-size:14px}
+    .eg-btn{padding:12px 16px;border:0;border-radius:10px;background:#0ea5e9;color:#fff;font-weight:600;cursor:pointer}
+    .eg-btn:disabled{opacity:.6;cursor:not-allowed}
+    .eg-meta{font-size:12px;color:#666;margin-top:10px}
+    .eg-hide{display:none}
+    @media (prefers-color-scheme: dark){
+      .eg-card{background:#0b0f14;color:#e5e7eb;border:1px solid #1f2937}
+      .eg-input{background:#0f141b;color:#e5e7eb;border-color:#334155}
+      .eg-meta{color:#9ca3af}
+    }
+  </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-xl font-bold gradient-text">Steven Caldeira</span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-700">About</a>
-                    <a href="#experience" class="nav-link text-gray-700 hover:text-blue-700">Experience</a>
-                    <a href="#education" class="nav-link text-gray-700 hover:text-blue-700">Education</a>
-                    <a href="#projects" class="nav-link text-gray-700 hover:text-blue-700">Projects</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-700">Contact</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-toggle" class="text-gray-700">
-                        <i data-feather="menu"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4">
-            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-700">About</a>
-            <a href="#experience" class="block py-2 text-gray-700 hover:text-blue-700">Experience</a>
-            <a href="#education" class="block py-2 text-gray-700 hover:text-blue-700">Education</a>
-            <a href="#projects" class="block py-2 text-gray-700 hover:text-blue-700">Projects</a>
-            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-700">Contact</a>
-        </div>
-    </nav>
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Steven Caldeira - Hero Section</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <style>
-            .gradient-bg {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            }
-            
-            .card-shadow {
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            }
-            
-            .profile-image {
-                clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%);
-                transition: transform 0.3s ease;
-            }
-            
-            .profile-image:hover {
-                transform: scale(1.05);
-            }
-            
-            .floating-element {
-                animation: float 6s ease-in-out infinite;
-            }
-            
-            @keyframes float {
-                0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-20px); }
-            }
-            
-            .text-gradient {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-        </style>
-    </head>
-    <body>
-    
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Steven Caldeira - Hero Section</title>
-            <script src="https://cdn.tailwindcss.com"></script>
-            <style>
-                .gradient-bg {
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                }
-                
-                .card-shadow {
-                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-                }
-                
-                .profile-image {
-                    clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%);
-                    transition: transform 0.3s ease;
-                }
-                
-                .profile-image:hover {
-                    transform: scale(1.05);
-                }
-                
-                .floating-element {
-                    animation: float 6s ease-in-out infinite;
-                }
-                
-                @keyframes float {
-                    0%, 100% { transform: translateY(0px); }
-                    50% { transform: translateY(-20px); }
-                }
-                
-                .text-gradient {
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                }
-            </style>
-        </head>
-        <body>
-        
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Steven Caldeira - Hero Section</title>
-                <script src="https://cdn.tailwindcss.com"></script>
-                <style>
-                    .gradient-bg {
-                        background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
-                    }
-                    
-                    .card-shadow {
-                        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-                    }
-                    
-                    .profile-image {
-                        clip-path: polygon(0% 0%, 85% 0%, 100% 15%, 100% 100%, 15% 100%, 0% 85%);
-                        transition: transform 0.3s ease;
-                    }
-                    
-                    .profile-image:hover {
-                        transform: scale(1.05);
-                    }
-                    
-                    .floating-element {
-                        animation: float 6s ease-in-out infinite;
-                    }
-                    
-                    @keyframes float {
-                        0%, 100% { transform: translateY(0px); }
-                        50% { transform: translateY(-20px); }
-                    }
-                    
-                    .text-gradient {
-                        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-clip: text;
-                    }
-                </style>
-            </head>
-            <body>
-            
-            <!-- Hero Section -->
-            <section id="about" class="min-h-screen flex items-center gradient-bg relative overflow-hidden">
-                <!-- Background Elements -->
-                <div class="absolute inset-0 opacity-10">
-                    <div class="absolute top-20 left-20 w-72 h-72 bg-white rounded-full floating-element"></div>
-                    <div class="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full floating-element" style="animation-delay: -2s;"></div>
-                    <div class="absolute top-1/2 left-1/4 w-48 h-48 bg-white rounded-full floating-element" style="animation-delay: -4s;"></div>
-                </div>
-                
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div class="flex flex-col lg:flex-row items-center gap-12">
-                        
-                        <!-- Image Section -->
-                        <div class="lg:w-1/2 flex justify-center">
-                            <div class="relative">
-                                <!-- Main Image Container -->
-                                <div class="bg-white p-6 rounded-2xl card-shadow transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                                    <img 
-                                        src="https://stevencaldeira.github.io/assets/imgs/avatar.jpg" 
-                                        alt="Steven Caldeira" 
-                                        class="w-80 h-96 object-cover profile-image"
-                                    >
-                                </div>
-                                
-                                <!-- Decorative Elements -->
-                                <div class="absolute -top-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full opacity-80"></div>
-                                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-pink-400 rounded-full opacity-60"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Content Section -->
-                        <div class="lg:w-1/2 text-white">
-                            <div class="space-y-6">
-                                <div>
-                                    <p class="text-lg font-medium mb-2 opacity-90">Hello, I'm</p>
-                                    <h1 class="text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                                        Steven <br>
-                                        <span class="text-gradient">Caldeira</span>
-                                    </h1>
-                                    <h2 class="text-2xl lg:text-3xl font-light mb-8 opacity-90">
-                                        Engineering Management Professional
-                                    </h2>
-                                </div>
-                                
-                                <div class="space-y-4 text-lg opacity-90 leading-relaxed">
-                                    <p>
-                                        An engineering management professional with hands-on experience in 
-                                        <span class="font-semibold text-yellow-300">facilities, utilities, and project management</span> 
-                                        across biotech, marine, and logistics industries.
-                                    </p>
-                                    
-                                    <p>
-                                        Master's in Engineering Management from USC, specializing in 
-                                        <span class="font-semibold text-yellow-300">system reliability, operational efficiency, and regulatory compliance</span>.
-                                    </p>
-                                    
-                                    <p>
-                                        Passionate about transforming challenges into 
-                                        <span class="font-semibold text-yellow-300">measurable results and sustainable improvements</span>.
-                                    </p>
-                                </div>
-                                
-                                <!-- Action Buttons -->
-                                <div class="flex flex-col sm:flex-row gap-4 pt-8">
-                                    <a href="#contact" 
-                                       class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 text-center shadow-lg">
-                                        Let's Connect
-                                    </a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Scroll Indicator -->
-                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white opacity-70">
-                    <div class="animate-bounce">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                        </svg>
-                    </div>
-                </div>
-            </section>
-            
-            </body>
-            </html>
-
-<!-- Experience Section -->
-<section id="experience" class="py-20 bg-white">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold mb-4 gradient-text">Professional Experience</h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                My journey through diverse engineering roles across biotech, marine, and logistics design industries
-            </p>
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <span class="text-xl font-bold gradient-text">Steven Caldeira</span>
         </div>
-        
-        <div class="space-y-12">
-            <!-- Boehringer Ingelheim -->
-            <div class="flex flex-col md:flex-row" data-aos="fade-up">
-                <div class="md:w-1/3 mb-6 md:mb-0">
-                    <h3 class="text-xl font-bold text-blue-700">Boehringer Ingelheim</h3>
-                    <p class="text-gray-600">Fremont, CA</p>
-                    <p class="text-gray-500">Facilities Maintenance Tech / Intern</p>
-                </div>
-                <div class="md:w-2/3">
-                    <ul class="space-y-3">
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Managed utility systems: WFI, RODI, Plant Steam, Cleanroom monitoring</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Built live dashboards (SAC, Power BI) for 700+ SAP work orders</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Conducted P&amp;ID reviews, RCA, and PiVision data analysis for system reliability</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Improved maintenance tracking, backlog reduction, and GMP compliance</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Genentech -->
-            <div class="flex flex-col md:flex-row" data-aos="fade-up">
-                <div class="md:w-1/3 mb-6 md:mb-0">
-                    <h3 class="text-xl font-bold text-blue-700">Genentech, Roche Group</h3>
-                    <p class="text-gray-600">Vacaville, CA</p>
-                    <p class="text-gray-500">Facilities &amp; Utilities Intern</p>
-                </div>
-                <div class="md:w-2/3">
-                    <ul class="space-y-3">
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Supported utility systems: HVAC, Chillers, Compressors, Boilers, Cooling Towers, WRO</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Designed floor plans &amp; pressure analysis to boost HVAC efficiency</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Automated data processing with Python &amp; Google Scripts (60% faster QA)</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Coordinated projects with contractors, ensuring on-time delivery</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Trained in cGMP, SOPs, OSHA standards for compliance</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- UMA Marine -->
-            <div class="flex flex-col md:flex-row" data-aos="fade-up">
-                <div class="md:w-1/3 mb-6 md:mb-0">
-                    <h3 class="text-xl font-bold text-blue-700">UMA Marine Services</h3>
-                    <p class="text-gray-600">Dubai Maritime City, UAE</p>
-                    <p class="text-gray-500">Procurement Engineer</p>
-                </div>
-                <div class="md:w-2/3">
-                    <ul class="space-y-3">
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Directed procurement &amp; inventory for marine engineering projects</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Led a 15-member workshop team, improving output by 15%</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Negotiated client contracts and boosted sales/customer satisfaction</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Aries Marine -->
-            <div class="flex flex-col md:flex-row" data-aos="fade-up">
-                <div class="md:w-1/3 mb-6 md:mb-0">
-                    <h3 class="text-xl font-bold text-blue-700">Aries Marine &amp; Engg. Services</h3>
-                    <p class="text-gray-600">Goa, India</p>
-                    <p class="text-gray-500">Piping Design Engineer</p>
-                </div>
-                <div class="md:w-2/3">
-                    <ul class="space-y-3">
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Delivered piping design &amp; 3D modeling using AutoCAD, ZW-CAD, Cadmatic</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Integrated BWTS piping with existing systems (DIN, JIS, ANSI)</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Prepared layouts, MTOs, and detailed templates improving efficiency</span></li>
-                        <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Applied lean project planning for multiple ship engineering projects</span></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#about" class="nav-link text-gray-700 hover:text-blue-700">About</a>
+          <a href="#experience" class="nav-link text-gray-700 hover:text-blue-700">Experience</a>
+          <a href="#education" class="nav-link text-gray-700 hover:text-blue-700">Education</a>
+          <a href="#projects" class="nav-link text-gray-700 hover:text-blue-700">Projects</a>
+          <a href="#contact" class="nav-link text-gray-700 hover:text-blue-700">Contact</a>
         </div>
+        <div class="md:hidden flex items-center">
+          <button id="menu-toggle" class="text-gray-700" aria-label="Open menu">
+            <i data-feather="menu"></i>
+          </button>
+        </div>
+      </div>
     </div>
-</section>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white pb-4 px-4">
+      <a href="#about" class="block py-2 text-gray-700 hover:text-blue-700">About</a>
+      <a href="#experience" class="block py-2 text-gray-700 hover:text-blue-700">Experience</a>
+      <a href="#education" class="block py-2 text-gray-700 hover:text-blue-700">Education</a>
+      <a href="#projects" class="block py-2 text-gray-700 hover:text-blue-700">Projects</a>
+      <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-700">Contact</a>
+    </div>
+  </nav>
 
-    <!-- Education Section -->
-    <section id="education" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 gradient-text">Education & Certifications</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">My academic background and professional certifications</p>
+  <!-- Hero Section -->
+  <section id="about" class="min-h-screen flex items-center gradient-bg relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-20 w-72 h-72 bg-white rounded-full floating-element"></div>
+      <div class="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full floating-element" style="animation-delay:-2s;"></div>
+      <div class="absolute top-1/2 left-1/4 w-48 h-48 bg-white rounded-full floating-element" style="animation-delay:-4s;"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 flex justify-center">
+          <div class="relative">
+            <div class="bg-white p-6 rounded-2xl card-shadow transform rotate-3 hover:rotate-0 transition-transform duration-500">
+              <img src="https://stevencaldeira.github.io/assets/imgs/avatar.jpg" alt="Steven Caldeira" class="w-80 h-96 object-cover profile-image">
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Education -->
-                <div data-aos="fade-right">
-                    <h3 class="text-2xl font-semibold mb-6 text-blue-700">Education</h3>
-                    <div class="space-y-8">
-                        <div class="bg-white p-6 rounded-lg shadow-sm">
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                    <i data-feather="book" class="text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg">University of Southern California</h4>
-                                    <p class="text-gray-600">Master of Science in Engineering Management</p>
-                                    <p class="text-gray-500">2023 - 2025</p>
-                                    <p class="mt-2 text-gray-700">Dean's Master's Scholarship recipient</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-sm">
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                    <i data-feather="book" class="text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg">Goa University, AITD</h4>
-                                    <p class="text-gray-600">Bachelor of Engineering in Mechanical Engineering</p>
-                                    <p class="text-gray-500">2017 - 2021</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Certifications -->
-                <div data-aos="fade-left">
-                    <h3 class="text-2xl font-semibold mb-6 text-blue-700">Certifications</h3>
-                    <div class="space-y-4">
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
-                            <div class="bg-green-100 p-2 rounded-full mr-3">
-                                <i data-feather="award" class="text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Certified Associate in Project Management (CAPM®)</h4>
-                                <p class="text-gray-600">PMI</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
-                            <div class="bg-green-100 p-2 rounded-full mr-3">
-                                <i data-feather="award" class="text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Lean Six Sigma Black Belt</h4>
-                                <p class="text-gray-600">CSSC</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
-                            <div class="bg-green-100 p-2 rounded-full mr-3">
-                                <i data-feather="award" class="text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">OSHA 30-Hour GIC</h4>
-                                <p class="text-gray-600">U.S. DOL</p>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
-                            <div class="bg-green-100 p-2 rounded-full mr-3">
-                                <i data-feather="award" class="text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">GMP Fundamentals: GMP - Buildings and Facilities</h4>
-                                <p class="text-gray-600">ISPE</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-yellow-400 rounded-full opacity-80"></div>
+            <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-pink-400 rounded-full opacity-60"></div>
+          </div>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 gradient-text">Projects</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Innovative solutions and technical implementations</p>
+        <div class="lg:w-1/2 text-white">
+          <div class="space-y-6">
+            <div>
+              <p class="text-lg font-medium mb-2 opacity-90">Hello, I'm</p>
+              <h1 class="text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                Steven<br><span class="text-gradient">Caldeira</span>
+              </h1>
+              <h2 class="text-2xl lg:text-3xl font-light mb-8 opacity-90">Engineering Management Professional</h2>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in">
-                    <div class="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                        <i data-feather="cpu" class="text-blue-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">SAP SAC Dashboard Development</h3>
-                    <p class="text-gray-600 mb-4">Created a live dashboard for 700+ PM/CM work orders, increasing maintenance tracking efficiency by 30% at Boehringer Ingelheim.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">SAP</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Data Analytics</span>
-                        <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Dashboard</span>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="bg-green-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                        <i data-feather="code" class="text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Python Excel Data Organizer</h3>
-                    <p class="text-gray-600 mb-4">Developed automation tools to increase data verification and quality assurance processes by 60% at Genentech.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Python</span>
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Automation</span>
-                        <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Excel</span>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="bg-purple-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                        <i data-feather="tool" class="text-purple-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Magnetic Oil Spill Collection Prototype</h3>
-                    <p class="text-gray-600 mb-4">Designed and implemented an innovative solution for marine oil spill cleanup using magnetic principles.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Mechanical Design</span>
-                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Prototyping</span>
-                        <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Environmental</span>
-                    </div>
-                </div>
-                
-                <!-- Project 4 -->
-                <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="bg-yellow-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                        <i data-feather="edit" class="text-yellow-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Signature Creation Tool</h3>
-                    <p class="text-gray-600 mb-4">Developed branded email signatures for all UMA Marine branches, boosting professional communication effectiveness by 10%.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Design</span>
-                        <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Branding</span>
-                        <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Communication</span>
-                    </div>
-                </div>
+            <div class="space-y-4 text-lg opacity-90 leading-relaxed">
+              <p>An engineering management professional with hands-on experience in <span class="font-semibold text-yellow-300">facilities, utilities, and project management</span> across biotech, marine, and logistics industries.</p>
+              <p>Master's in Engineering Management from USC, specializing in <span class="font-semibold text-yellow-300">system reliability, operational efficiency, and regulatory compliance</span>.</p>
+              <p>Passionate about transforming challenges into <span class="font-semibold text-yellow-300">measurable results and sustainable improvements</span>.</p>
             </div>
+            <div class="flex flex-col sm:flex-row gap-4 pt-8">
+              <a href="#contact" class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 text-center shadow-lg">Let's Connect</a>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Skills Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 gradient-text">Technical Skills</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">My professional capabilities and areas of expertise</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Technical Skills -->
-                <div data-aos="fade-up">
-                    <div class="bg-white p-6 rounded-lg shadow-sm h-full">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-blue-100 p-2 rounded-full mr-3">
-                                <i data-feather="code" class="text-blue-600"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">Technical Skills</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">SAP Plant Maintenance</span>
-                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Excel Automation</span>
-                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">AutoCAD</span>
-                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Python Scripting</span>
-                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Building Management Systems</span>
-                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">3D Modeling</span>
-                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Data Analytics</span>
-                            <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Power BI</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Management Skills -->
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-white p-6 rounded-lg shadow-sm h-full">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-green-100 p-2 rounded-full mr-3">
-                                <i data-feather="users" class="text-green-600"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">Management Skills</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Project Management</span>
-                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Lean Six Sigma</span>
-                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Process Optimization</span>
-                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Team Leadership</span>
-                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Vendor Coordination</span>
-                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Inventory Control</span>
-                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Strategic Sourcing</span>
-                            <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">GMP Compliance</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Soft Skills -->
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-white p-6 rounded-lg shadow-sm h-full">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-purple-100 p-2 rounded-full mr-3">
-                                <i data-feather="message-circle" class="text-purple-600"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">Soft Skills</h3>
-                        </div>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Problem Solving</span>
-                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Technical Writing</span>
-                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Client Communication</span>
-                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Cross-Functional Collaboration</span>
-                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Data-Driven Decision Making</span>
-                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Proactive Troubleshooting</span>
-                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Professional Communication</span>
-                            <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Continuous Improvement</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white opacity-70">
+      <div class="animate-bounce">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 gradient-text">Professional Experience</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">My journey through diverse engineering roles across biotech, marine, and logistics design industries</p>
+      </div>
+
+      <div class="space-y-12">
+        <div class="flex flex-col md:flex-row" data-aos="fade-up">
+          <div class="md:w-1/3 mb-6 md:mb-0">
+            <h3 class="text-xl font-bold text-blue-700">Boehringer Ingelheim</h3>
+            <p class="text-gray-600">Fremont, CA</p>
+            <p class="text-gray-500">Facilities Maintenance Tech / Intern</p>
+          </div>
+          <div class="md:w-2/3">
+            <ul class="space-y-3">
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Managed utility systems: WFI, RODI, Plant Steam, Cleanroom monitoring</span></li>
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Built live dashboards (SAC, Power BI) for 700+ SAP work orders</span></li>
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Conducted P&amp;ID reviews, RCA, and PiVision data analysis for system reliability</span></li>
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Improved maintenance tracking, backlog reduction, and GMP compliance</span></li>
+            </ul>
+          </div>
         </div>
-    </section>
 
-    <!-- Hobbies Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 gradient-text">Hobbies & Interests</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">What I enjoy outside of my professional work</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up">
-                    <div class="bg-red-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                        <i data-feather="tool" class="text-red-600"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Craftsmanship</h3>
-                    <p class="text-gray-600">Working with handheld machinery to create functional pieces</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-yellow-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                        <i data-feather="music" class="text-yellow-600"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Music</h3>
-                    <p class="text-gray-600">Drumming and guitar lessons for creative expression</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-green-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                        <i data-feather="globe" class="text-green-600"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Travel</h3>
-                    <p class="text-gray-600">Exploring new cultures and adventures around the world</p>
-                </div>
-                
-                <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-blue-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                        <i data-feather="camera" class="text-blue-600"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Photography</h3>
-                    <p class="text-gray-600">Instant print camera exploration and creative photography</p>
-                </div>
-            </div>
+        <div class="flex flex-col md:flex-row" data-aos="fade-up">
+          <div class="md:w-1/3 mb-6 md:mb-0">
+            <h3 class="text-xl font-bold text-blue-700">Genentech, Roche Group</h3>
+            <p class="text-gray-600">Vacaville, CA</p>
+            <p class="text-gray-500">Facilities &amp; Utilities Intern</p>
+          </div>
+          <div class="md:w-2/3">
+            <ul class="space-y-3">
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Supported utility systems: HVAC, Chillers, Compressors, Boilers, Cooling Towers, WRO</span></li>
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Designed floor plans &amp; pressure analysis to boost HVAC efficiency</span></li>
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Automated data processing with Python &amp; Google Scripts (60% faster QA)</span></li>
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Coordinated projects with contractors, ensuring on-time delivery</span></li>
+            </ul>
+          </div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 gradient-text">Get In Touch</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">I'm always open to discussing new opportunities and collaborations</p>
-            </div>
-            
-            <div class="flex flex-col md:flex-row gap-12">
-                <div class="md:w-1/2" data-aos="fade-right">
-                    <div class="bg-white p-8 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-bold mb-6 text-blue-700">Contact Information</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                                    <i data-feather="mail" class="text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">Email</h4>
-                                    <a href="mailto:Stevencaldeira9@gmail.com" class="text-gray-600 hover:text-blue-600">Stevencaldeira9@gmail.com</a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                                    <i data-feather="phone" class="text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">Phone</h4>
-                                    <a href="tel:+12132450547" class="text-gray-600 hover:text-blue-600">+1 (213) 245-0547</a>
-                                    <p class="text-sm text-gray-500 mt-1">Preferred method for quick response</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                                    <i data-feather="message-square" class="text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">WhatsApp</h4>
-                                    <a href="https://wa.me/12132450547" class="text-gray-600 hover:text-blue-600">+1 (213) 245-0547</a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                                    <i data-feather="linkedin" class="text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">LinkedIn</h4>
-                                    <a href="https://www.linkedin.com/in/steven-caldeira" target="_blank" class="text-gray-600 hover:text-blue-600">linkedin.com/in/steven-caldeira</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:w-1/2" data-aos="fade-left">
-                    <div class="bg-white p-8 rounded-lg shadow-sm">
-                        <h3 class="text-xl font-bold mb-6 text-blue-700">Send Me a Message</h3>
-                        <form>
-                            <div class="mb-4">
-                                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                            <div class="mb-4">
-                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
-                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            </div>
-                            <div class="mb-6">
-                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <div class="flex flex-col md:flex-row" data-aos="fade-up">
+          <div class="md:w-1/3 mb-6 md:mb-0">
+            <h3 class="text-xl font-bold text-blue-700">UMA Marine Services</h3>
+            <p class="text-gray-600">Dubai Maritime City, UAE</p>
+            <p class="text-gray-500">Procurement Engineer</p>
+          </div>
+          <div class="md:w-2/3">
+            <ul class="space-y-3">
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Directed procurement &amp; inventory for marine engineering projects</span></li>
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Led a 15-member workshop team, improving output by 15%</span></li>
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Negotiated client contracts and boosted sales/customer satisfaction</span></li>
+            </ul>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <span class="text-xl font-bold">Steven Caldeira</span>
-                    <p class="text-gray-400 mt-2">Engineering Management Professional</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="https://www.linkedin.com/in/steven-caldeira" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-                        <i data-feather="linkedin"></i>
-                    </a>
-                    <a href="mailto:Stevencaldeira9@gmail.com" class="text-gray-400 hover:text-white transition duration-300">
-                        <i data-feather="mail"></i>
-                    </a>
-                    <a href="tel:+12132450547" class="text-gray-400 hover:text-white transition duration-300">
-                        <i data-feather="phone"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Steven Caldeira. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="#about" class="text-gray-400 hover:text-white text-sm transition duration-300">About</a>
-                    <a href="#experience" class="text-gray-400 hover:text-white text-sm transition duration-300">Experience</a>
-                    <a href="#projects" class="text-gray-400 hover:text-white text-sm transition duration-300">Projects</a>
-                    <a href="#contact" class="text-gray-400 hover:text-white text-sm transition duration-300">Contact</a>
-                </div>
-            </div>
+        <div class="flex flex-col md:flex-row" data-aos="fade-up">
+          <div class="md:w-1/3 mb-6 md:mb-0">
+            <h3 class="text-xl font-bold text-blue-700">Aries Marine &amp; Engg. Services</h3>
+            <p class="text-gray-600">Goa, India</p>
+            <p class="text-gray-500">Piping Design Engineer</p>
+          </div>
+          <div class="md:w-2/3">
+            <ul class="space-y-3">
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Delivered piping design &amp; 3D modeling using AutoCAD, ZW-CAD, Cadmatic</span></li>
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Integrated BWTS piping with existing systems (DIN, JIS, ANSI)</span></li>
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Prepared layouts, MTOs, and detailed templates improving efficiency</span></li>
+              <li class="flex items-start"><i data-feather="check-circle" class="text-green-500 mr-2 mt-1"></i><span>Applied lean project planning for multiple ship engineering projects</span></li>
+            </ul>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-            this.innerHTML = menu.classList.contains('hidden') ? 
-                '<i data-feather="menu"></i>' : '<i data-feather="x"></i>';
-            feather.replace();
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    document.getElementById('menu-toggle').innerHTML = '<i data-feather="menu"></i>';
-                    feather.replace();
-                }
-            });
-        });
-        
-        // Replace feather icons
-        feather.replace();
-    </script>
+  <!-- Education -->
+  <section id="education" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 gradient-text">Education & Certifications</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">My academic background and professional certifications</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div data-aos="fade-right">
+          <h3 class="text-2xl font-semibold mb-6 text-blue-700">Education</h3>
+          <div class="space-y-8">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start">
+                <div class="bg-blue-100 p-3 rounded-full mr-4"><i data-feather="book" class="text-blue-600"></i></div>
+                <div>
+                  <h4 class="font-bold text-lg">University of Southern California</h4>
+                  <p class="text-gray-600">Master of Science in Engineering Management</p>
+                  <p class="text-gray-500">2023 - 2025</p>
+                  <p class="mt-2 text-gray-700">Dean's Master's Scholarship recipient</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start">
+                <div class="bg-blue-100 p-3 rounded-full mr-4"><i data-feather="book" class="text-blue-600"></i></div>
+                <div>
+                  <h4 class="font-bold text-lg">Goa University, AITD</h4>
+                  <p class="text-gray-600">Bachelor of Engineering in Mechanical Engineering</p>
+                  <p class="text-gray-500">2017 - 2021</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-left">
+          <h3 class="text-2xl font-semibold mb-6 text-blue-700">Certifications</h3>
+          <div class="space-y-4">
+            <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+              <div class="bg-green-100 p-2 rounded-full mr-3"><i data-feather="award" class="text-green-600"></i></div>
+              <div><h4 class="font-semibold">Certified Associate in Project Management (CAPM®)</h4><p class="text-gray-600">PMI</p></div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+              <div class="bg-green-100 p-2 rounded-full mr-3"><i data-feather="award" class="text-green-600"></i></div>
+              <div><h4 class="font-semibold">Lean Six Sigma Black Belt</h4><p class="text-gray-600">CSSC</p></div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+              <div class="bg-green-100 p-2 rounded-full mr-3"><i data-feather="award" class="text-green-600"></i></div>
+              <div><h4 class="font-semibold">OSHA 30-Hour GIC</h4><p class="text-gray-600">U.S. DOL</p></div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+              <div class="bg-green-100 p-2 rounded-full mr-3"><i data-feather="award" class="text-green-600"></i></div>
+              <div><h4 class="font-semibold">GMP Fundamentals: GMP - Buildings and Facilities</h4><p class="text-gray-600">ISPE</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 gradient-text">Projects</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">Innovative solutions and technical implementations</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in">
+          <div class="bg-blue-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4"><i data-feather="cpu" class="text-blue-600"></i></div>
+          <h3 class="text-xl font-bold mb-2">SAP SAC Dashboard Development</h3>
+          <p class="text-gray-600 mb-4">Created a live dashboard for 700+ PM/CM work orders, increasing maintenance tracking efficiency by 30% at Boehringer Ingelheim.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">SAP</span>
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Data Analytics</span>
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Dashboard</span>
+          </div>
+        </div>
+
+        <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="100">
+          <div class="bg-green-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4"><i data-feather="code" class="text-green-600"></i></div>
+          <h3 class="text-xl font-bold mb-2">Python Excel Data Organizer</h3>
+          <p class="text-gray-600 mb-4">Developed automation tools to increase data verification and quality assurance processes by 60% at Genentech.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Python</span>
+            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Automation</span>
+            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Excel</span>
+          </div>
+        </div>
+
+        <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="200">
+          <div class="bg-purple-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4"><i data-feather="tool" class="text-purple-600"></i></div>
+          <h3 class="text-xl font-bold mb-2">Magnetic Oil Spill Collection Prototype</h3>
+          <p class="text-gray-600 mb-4">Designed and implemented an innovative solution for marine oil spill cleanup using magnetic principles.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Mechanical Design</span>
+            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Prototyping</span>
+            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Environmental</span>
+          </div>
+        </div>
+
+        <div class="project-card bg-gray-50 p-6 rounded-lg border border-gray-200" data-aos="zoom-in" data-aos-delay="300">
+          <div class="bg-yellow-100 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4"><i data-feather="edit" class="text-yellow-600"></i></div>
+          <h3 class="text-xl font-bold mb-2">Signature Creation Tool</h3>
+          <p class="text-gray-600 mb-4">Developed branded email signatures for all UMA Marine branches, boosting professional communication effectiveness by 10%.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Design</span>
+            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Branding</span>
+            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Communication</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 gradient-text">Technical Skills</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">My professional capabilities and areas of expertise</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div data-aos="fade-up">
+          <div class="bg-white p-6 rounded-lg shadow-sm h-full">
+            <div class="flex items-center mb-4"><div class="bg-blue-100 p-2 rounded-full mr-3"><i data-feather="code" class="text-blue-600"></i></div><h3 class="text-xl font-bold">Technical Skills</h3></div>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">SAP Plant Maintenance</span>
+              <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Excel Automation</span>
+              <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">AutoCAD</span>
+              <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Python Scripting</span>
+              <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Building Management Systems</span>
+              <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">3D Modeling</span>
+              <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Data Analytics</span>
+              <span class="skill-pill bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Power BI</span>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-white p-6 rounded-lg shadow-sm h-full">
+            <div class="flex items-center mb-4"><div class="bg-green-100 p-2 rounded-full mr-3"><i data-feather="users" class="text-green-600"></i></div><h3 class="text-xl font-bold">Management Skills</h3></div>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Project Management</span>
+              <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Lean Six Sigma</span>
+              <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Process Optimization</span>
+              <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Team Leadership</span>
+              <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Vendor Coordination</span>
+              <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Inventory Control</span>
+              <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">Strategic Sourcing</span>
+              <span class="skill-pill bg-green-100 text-green-800 px-3 py-1 rounded-full">GMP Compliance</span>
+            </div>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-white p-6 rounded-lg shadow-sm h-full">
+            <div class="flex items-center mb-4"><div class="bg-purple-100 p-2 rounded-full mr-3"><i data-feather="message-circle" class="text-purple-600"></i></div><h3 class="text-xl font-bold">Soft Skills</h3></div>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Problem Solving</span>
+              <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Technical Writing</span>
+              <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Client Communication</span>
+              <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Cross-Functional Collaboration</span>
+              <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Data-Driven Decision Making</span>
+              <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Proactive Troubleshooting</span>
+              <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Professional Communication</span>
+              <span class="skill-pill bg-purple-100 text-purple-800 px-3 py-1 rounded-full">Continuous Improvement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 gradient-text">Hobbies & Interests</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">What I enjoy outside of my professional work</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up">
+          <div class="bg-red-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"><i data-feather="tool" class="text-red-600"></i></div>
+          <h3 class="font-bold text-lg mb-2">Craftsmanship</h3>
+          <p class="text-gray-600">Working with handheld machinery to create functional pieces</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-yellow-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"><i data-feather="music" class="text-yellow-600"></i></div>
+          <h3 class="font-bold text-lg mb-2">Music</h3>
+          <p class="text-gray-600">Drumming and guitar lessons for creative expression</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="bg-green-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"><i data-feather="globe" class="text-green-600"></i></div>
+          <h3 class="font-bold text-lg mb-2">Travel</h3>
+          <p class="text-gray-600">Exploring new cultures and adventures around the world</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-lg text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="bg-blue-100 p-3 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"><i data-feather="camera" class="text-blue-600"></i></div>
+          <h3 class="font-bold text-lg mb-2">Photography</h3>
+          <p class="text-gray-600">Instant print camera exploration and creative photography</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4 gradient-text">Get In Touch</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">I'm always open to discussing new opportunities and collaborations</p>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-12">
+        <div class="md:w-1/2" data-aos="fade-right">
+          <div class="bg-white p-8 rounded-lg shadow-sm">
+            <h3 class="text-xl font-bold mb-6 text-blue-700">Contact Information</h3>
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="bg-blue-100 p-2 rounded-full mr-4"><i data-feather="mail" class="text-blue-600"></i></div>
+                <div>
+                  <h4 class="font-semibold">Email</h4>
+                  <a href="mailto:Stevencaldeira9@gmail.com" class="text-gray-600 hover:text-blue-600">Stevencaldeira9@gmail.com</a>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-blue-100 p-2 rounded-full mr-4"><i data-feather="phone" class="text-blue-600"></i></div>
+                <div>
+                  <h4 class="font-semibold">Phone</h4>
+                  <a href="tel:+12132450547" class="text-gray-600 hover:text-blue-600">+1 (213) 245-0547</a>
+                  <p class="text-sm text-gray-500 mt-1">Preferred method for quick response</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-blue-100 p-2 rounded-full mr-4"><i data-feather="message-square" class="text-blue-600"></i></div>
+                <div>
+                  <h4 class="font-semibold">WhatsApp</h4>
+                  <a href="https://wa.me/12132450547" class="text-gray-600 hover:text-blue-600">+1 (213) 245-0547</a>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div class="bg-blue-100 p-2 rounded-full mr-4"><i data-feather="linkedin" class="text-blue-600"></i></div>
+                <div>
+                  <h4 class="font-semibold">LinkedIn</h4>
+                  <a href="https://www.linkedin.com/in/steven-caldeira" target="_blank" class="text-gray-600 hover:text-blue-600">linkedin.com/in/steven-caldeira</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:w-1/2" data-aos="fade-left">
+          <div class="bg-white p-8 rounded-lg shadow-sm">
+            <h3 class="text-xl font-bold mb-6 text-blue-700">Send Me a Message</h3>
+            <form>
+              <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+              </div>
+              <div class="mb-6">
+                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <span class="text-xl font-bold">Steven Caldeira</span>
+          <p class="text-gray-400 mt-2">Engineering Management Professional</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://www.linkedin.com/in/steven-caldeira" target="_blank" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="linkedin"></i></a>
+          <a href="mailto:Stevencaldeira9@gmail.com" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="mail"></i></a>
+          <a href="tel:+12132450547" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="phone"></i></a>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 Steven Caldeira. All rights reserved.</p>
+        <div class="flex space-x-6">
+          <a href="#about" class="text-gray-400 hover:text-white text-sm transition duration-300">About</a>
+          <a href="#experience" class="text-gray-400 hover:text-white text-sm transition duration-300">Experience</a>
+          <a href="#projects" class="text-gray-400 hover:text-white text-sm transition duration-300">Projects</a>
+          <a href="#contact" class="text-gray-400 hover:text-white text-sm transition duration-300">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Email Gate Modal (blocks EVERY visit until submit) -->
+  <div id="egate" class="eg-backdrop" role="dialog" aria-modal="true" aria-labelledby="eg-title">
+    <div class="eg-card">
+      <h2 id="eg-title" class="eg-title">Welcome!</h2>
+
+      <form id="eg-form" action="https://formspree.io/f/xanyekwz" method="POST" novalidate>
+        <div class="eg-row">
+          <input id="eg-email" name="email" type="email" class="eg-input" placeholder="you@example.com" required aria-label="Email address">
+          <button id="eg-submit" class="eg-btn" type="submit">Submit</button>
+        </div>
+
+        <!-- Hidden fields populated by script -->
+        <input type="hidden" name="visitor_id" id="eg-visitor-id">
+        <input type="hidden" name="visit_count" id="eg-visit-count">
+        <input type="text" name="_gotcha" class="eg-hide" tabindex="-1" autocomplete="off">
+
+        <div id="eg-status" class="eg-meta" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // AOS
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.AOS) AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+    });
+
+    // Mobile menu toggle
+    document.addEventListener('click', function(e){
+      const toggle = document.getElementById('menu-toggle');
+      if (e.target.closest('#menu-toggle')) {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+        toggle.innerHTML = menu.classList.contains('hidden') ? '<i data-feather="menu"></i>' : '<i data-feather="x"></i>';
+        if (window.feather) feather.replace();
+      }
+    });
+
+    // Feather icons
+    document.addEventListener('DOMContentLoaded', function(){ if (window.feather) feather.replace(); });
+
+    // -------- Email Gate Logic (blocks every visit, counts visits) --------
+    (function(){
+      const COUNT_KEY = 'sc_visit_count_v1';   // numeric counter
+      const ID_KEY    = 'sc_visitor_id_v1';    // stable random id per browser
+
+      const el = id => document.getElementById(id);
+      const modal = el('egate'), form = el('eg-form'), email = el('eg-email');
+      const submitBtn = el('eg-submit'), statusEl = el('eg-status');
+      const visitorIdField = el('eg-visitor-id'), visitCountField = el('eg-visit-count');
+
+      // Generate / get stable visitor id (per browser)
+      function uuid(){
+        return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,c=>(c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c/4).toString(16));
+      }
+      let vid = localStorage.getItem(ID_KEY);
+      if (!vid){ vid = uuid(); try { localStorage.setItem(ID_KEY, vid); } catch(e){} }
+
+      // Increment visit count on every load
+      let visits = parseInt(localStorage.getItem(COUNT_KEY) || '0', 10);
+      visits += 1;
+      try { localStorage.setItem(COUNT_KEY, String(visits)); } catch(e){}
+
+      // Populate hidden fields
+      visitorIdField.value = vid;
+      visitCountField.value = visits;
+
+      // Always block this visit until successful submit
+      function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        statusEl.textContent = '';
+        const v = email.value.trim();
+        if (!validEmail(v)){
+          statusEl.textContent = 'Please enter a valid email address.';
+          email.focus();
+          return;
+        }
+        submitBtn.disabled = true;
+
+        try {
+          const res = await fetch(form.action, {
+            method:'POST',
+            headers:{ 'Accept':'application/json' },
+            body:new FormData(form)
+          });
+
+          if (res.ok){
+            statusEl.textContent = 'Thanks!';
+            // Unblock THIS visit only
+            setTimeout(()=>{ modal.classList.add('eg-hide'); }, 300);
+          } else {
+            statusEl.textContent = 'Submission failed. Please check your Formspree settings and try again.';
+            submitBtn.disabled = false;
+          }
+        } catch(err){
+          statusEl.textContent = 'Network error. Please try again.';
+          submitBtn.disabled = false;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
